@@ -1,0 +1,12 @@
+name: Demo
+on:
+  push:
+    branches:
+      - main
+jobs:
+  demonstration:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./.github/actions/basics.yml
+      - name: Checkout same repository
+        uses: actions/checkout@v3

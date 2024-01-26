@@ -1,0 +1,22 @@
+name: 'Setup basics'
+runs:
+  using: "composite"
+  steps:
+    - name: Checkout same repository
+      uses: actions/checkout@v3
+    - name: Install Dependencies
+      run: |
+        sudo apt install -y curl build-essential git
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/runner/.bashrc
+        eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+        brew install tfenv tgenv
+        echo $PATH >> $GITHUB_PATH
+        tfenv --version
+        tgenv --version
+    - name: Get Versions
+        run: |
+        tfenv install
+        tgenv install
+        terragrunt --version
+        terraform --version

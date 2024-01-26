@@ -5,6 +5,7 @@ runs:
     - name: Checkout same repository
       uses: actions/checkout@v3
     - name: Install Dependencies
+      shell: bash
       run: |
         sudo apt install -y curl build-essential git
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -15,6 +16,7 @@ runs:
         tfenv --version
         tgenv --version
     - name: Get Versions
+      shell: bash
         run: |
         tfenv install
         tgenv install

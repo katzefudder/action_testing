@@ -9,4 +9,4 @@ jobs:
     steps:
       - name: Checkout same repository
         uses: actions/checkout@v3
-      - uses: ./.github/actions/basics.yml
+      - uses: ./.github/actions

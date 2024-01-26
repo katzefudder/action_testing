@@ -17,7 +17,7 @@ runs:
         tgenv --version
     - name: Get Versions
       shell: bash
-        run: |
+      run: |
         tfenv install
         tgenv install
         terragrunt --version
